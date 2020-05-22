@@ -1,13 +1,16 @@
 package com.xu.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+//使用Thymeleaf不能使用@RestController
+@Controller
 public class QuickController {
 
     @GetMapping("/get")
-    public String get(){
-        return "I don't you want to get something?";
+    public String get(ModelMap modelMap){
+        modelMap.put("hello", "hello");
+        return "index";
     }
 }
